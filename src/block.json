@@ -27,6 +27,12 @@
 		"shadow": true,
 		"dimensions": {
 			"minHeight": true
+		},
+		"color": {
+			"text": true,
+			"link": true,
+			"background": true,
+			"gradients": true
 		}
 	},
 	"editorScript": "file:./index.js",
