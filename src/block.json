@@ -1,0 +1,35 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "blocchi/barcode",
+	"version": "0.1.0",
+	"title": "Barcode block",
+	"icon": "feedback",
+	"category": "widgets",
+	"textdomain": "barcode",
+	"attributes": {
+		"content": {
+			"type": "string",
+			"default": ""
+		},
+		"size": {
+			"type": "number",
+			"default": 100
+		},
+		"ErrorCorrection": {
+			"type": "string",
+			"default": "L"
+		}
+	},
+	"supports": {
+		"html": false,
+		"align": true,
+		"shadow": true,
+		"dimensions": {
+			"minHeight": true
+		}
+	},
+	"editorScript": "file:./index.js",
+	"viewScript": "file:./view.js",
+	"render": "file:./render.php"
+}
