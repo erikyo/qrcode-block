@@ -4,6 +4,10 @@ function updateQr( el ) {
 	QRCode.toCanvas( el, el.dataset.content, {
 		errorCorrectionLevel: el.dataset.errorCorrection,
 		width: el.dataset.size,
+		color: {
+			light: el.dataset.colorBackground,
+			dark: el.dataset.colorText,
+		}
 	} );
 }
 

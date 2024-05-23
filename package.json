@@ -1,39 +1,31 @@
 {
-  "name": "qr-code-block",
-  "version": "0.1.0",
-  "description": "QR code block",
-  "author": "Erik",
-  "license": "GPL-2.0-or-later",
-  "main": "build/index.js",
-  "scripts": {
-    "env": "wp-env start",
-    "start": "wp-scripts start",
-    "build": "wp-scripts build",
-    "format": "wp-scripts format",
-    "lint:css": "wp-scripts lint-style",
-    "lint:js": "wp-scripts lint-js --fix",
-    "packages-update": "wp-scripts packages-update",
-    "plugin-zip": "wp-scripts plugin-zip"
-  },
-  "devDependencies": {
-    "@wordpress/block-editor": "^12.25.0",
-    "@wordpress/blocks": "^12.34.0",
-    "@wordpress/components": "^27.5.0",
-    "@wordpress/element": "^5.34.0",
-    "@wordpress/env": "^9.9.0",
-    "@wordpress/i18n": "^4.57.0",
-    "@wordpress/scripts": "^27.8.0"
-  },
-  "dependencies": {
-    "@wordpress/core-data": "^6.34.0",
-    "qrcode": "^1.5.3"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/cliffralessio/qrcode-block.git"
-  },
-  "bugs": {
-    "url": "https://github.com/cliffralessio/qrcode-block/issues"
-  },
-  "homepage": "https://github.com/cliffralessio/qrcode-block#readme"
+	"name": "qr-code-block",
+	"version": "0.1.0",
+	"description": "QR code block",
+	"author": "Erik",
+	"license": "GPL-2.0-or-later",
+	"main": "build/index.js",
+	"scripts": {
+		"env": "wp-env start",
+		"start": "wp-scripts start",
+		"build": "wp-scripts build",
+		"format": "wp-scripts format",
+		"lint:css": "wp-scripts lint-style",
+		"lint:js": "wp-scripts lint-js --fix",
+		"packages-update": "wp-scripts packages-update",
+		"plugin-zip": "wp-scripts plugin-zip"
+	},
+	"devDependencies": {
+		"@wordpress/block-editor": "^12.25.0",
+		"@wordpress/blocks": "^12.34.0",
+		"@wordpress/components": "^27.5.0",
+		"@wordpress/element": "^5.34.0",
+		"@wordpress/env": "^9.9.0",
+		"@wordpress/i18n": "^4.57.0",
+		"@wordpress/scripts": "^27.8.0"
+	},
+	"dependencies": {
+		"@wordpress/core-data": "^6.34.0",
+		"qrcode": "^1.5.3"
+	}
 }
