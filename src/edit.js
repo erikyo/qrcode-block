@@ -4,28 +4,37 @@
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-import {InspectorControls, useBlockProps} from '@wordpress/block-editor';
-import {PanelBody, RangeControl, SelectControl, TextControl,} from '@wordpress/components';
+import {
+	InspectorControls, useBlockProps, PanelColorSettings
+} from '@wordpress/block-editor';
+import { PanelBody, RangeControl, SelectControl, TextControl, } from '@wordpress/components';
 
-import {__} from '@wordpress/i18n';
+import { __ } from '@wordpress/i18n';
 import QRCode from 'qrcode';
-import {createRef, useEffect} from '@wordpress/element';
+import { createRef, useEffect } from '@wordpress/element';
 
-function QRCodeComponent({attributes}) {
+function QRCodeComponent({ attributes }) {
 	const {
 		content = 'QR-Code text',
 		size = 100,
 		errorCorrection = 'L',
+		textColor,
+		backgroundColor,
 	} = attributes;
 
 	const qrcodeRef = createRef();
+	
 
 	useEffect(() => {
 		QRCode.toCanvas(qrcodeRef.current, content, {
 			errorCorrectionLevel: errorCorrection,
 			width: size,
+			color: {
+				light: backgroundColor.color,
+				dark: textColor.color,
+			}
 		});
-	}, [content, size, errorCorrection]);
+	}, [content, size, errorCorrection, backgroundColor.color, textColor.color]);
 
 	return (
 		<canvas
@@ -34,6 +43,8 @@ function QRCodeComponent({attributes}) {
 			data-content={content}
 			data-size={size}
 			data-error-correction={errorCorrection}
+			data-color-text={textColor.color}
+			data-color-background={backgroundColor.color}
 		/>
 	);
 }
@@ -50,17 +61,26 @@ function QRCodeComponent({attributes}) {
  * @param  {Function} props.setAttributes 							The block context
  * @return {JSX.Element}								              The link block
  */
-export default function Edit({attributes, setAttributes}) {
+export default function Edit({ attributes, setAttributes}) {
+	const {textColor, backgroundColor} = attributes
 	const setContent = (content) => {
-		setAttributes({content});
+		setAttributes({ content });
 	};
 
 	const setSize = (size) => {
-		setAttributes({size});
+		setAttributes({ size });
 	};
 
 	const setErrorCorrection = (errorCorrection) => {
-		setAttributes({errorCorrection});
+		setAttributes({ errorCorrection });
+	};
+
+	const setTextColor = (color) => {
+		setAttributes({ textColor: { color } });
+	};
+
+	const setBackgroundColor = (color) => {
+		setAttributes({ backgroundColor: { color } });
 	};
 
 	return (
@@ -70,7 +90,6 @@ export default function Edit({attributes, setAttributes}) {
 					<TextControl
 						label={__('QR-Code text')}
 						placeholder={__('QR-Code text')}
-						initialValue={'QR-Code text'}
 						value={attributes.content}
 						onChange={setContent}
 					/>
@@ -85,16 +104,31 @@ export default function Edit({attributes, setAttributes}) {
 						label={__('QR-Code Error Correction')}
 						value={attributes.errorCorrection}
 						options={[
-							{label: 'L', value: 'L'},
-							{label: 'M', value: 'M'},
-							{label: 'Q', value: 'Q'},
-							{label: 'H', value: 'H'},
+							{ label: 'L', value: 'L' },
+							{ label: 'M', value: 'M' },
+							{ label: 'Q', value: 'Q' },
+							{ label: 'H', value: 'H' },
 						]}
 						onChange={setErrorCorrection}
 					/>
 				</PanelBody>
+				<PanelColorSettings
+					title={__('Color settings')}
+					colorSettings={[
+						{
+							value: textColor.color,
+							onChange: setTextColor,
+							label: __('Light color')
+						},
+						{
+							value: backgroundColor.color,
+							onChange: setBackgroundColor,
+							label: __('Dark color')
+						},
+					]}
+				/>
 			</InspectorControls>
-			<QRCodeComponent attributes={attributes}/>
+			<QRCodeComponent attributes={{ ...attributes }} />
 		</div>
 	);
 }

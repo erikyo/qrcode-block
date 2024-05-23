@@ -10,15 +10,27 @@
 	"attributes": {
 		"content": {
 			"type": "string",
-			"default": ""
+			"default": "QR-Code text"
 		},
 		"size": {
 			"type": "number",
 			"default": 100
 		},
-		"ErrorCorrection": {
+		"errorCorrection": {
 			"type": "string",
 			"default": "L"
+		},
+		"textColor": {
+			"type": "object",
+			"default": {
+				"color": "#000000"
+			}
+		},
+		"backgroundColor": {
+			"type": "object",
+			"default": {
+				"color": "#ffffff"
+			}
 		}
 	},
 	"supports": {
