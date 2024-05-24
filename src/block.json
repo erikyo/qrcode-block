@@ -1,9 +1,9 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "blocchi/barcode",
+	"name": "blocchi/qr-code",
 	"version": "0.1.0",
-	"title": "Barcode block",
+	"title": "QR-code block",
 	"icon": "feedback",
 	"category": "widgets",
 	"textdomain": "barcode",

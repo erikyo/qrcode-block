@@ -7,7 +7,7 @@ import { useBlockProps } from "@wordpress/block-editor";
  */
 export default function Save({ attributes }) {
 	const { textColor, backgroundColor } = attributes;
-	console.log('Text Color:', textColor);
+
 	return (
 		<div {...useBlockProps.save()}>
 			
