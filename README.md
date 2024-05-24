@@ -16,6 +16,7 @@ To whip up the QR Code block, you'll need the following ingredients:
 - **editor.scss**: Style rules crafted for the editor interface, ensuring an intuitive user experience.
 - **useBlockProps**: A React hook providing essential props for the block wrapper element.
 - **TextControl**: A component from `@wordpress/components` used for handling text input within the block.
+- **Attributes**: The dataset associated with this component.
 - **i18n**: Internationalization utilities from `@wordpress/i18n` for translating text strings.
 
 ### 👨‍🍳 Cooking Instructions
@@ -34,8 +35,8 @@ Eager to make your content scannable with the QR Code block? Follow these step-b
 3. **Block Functionality**:
 	- Dive into the `index.js` file where the core functionality of our QR Code block is defined. This file outlines how the block behaves within the editor interface. We’ve implemented a `TextControl` component to handle QR code input efficiently, providing a seamless user experience.
 
-4. **State Management**:
-	- Utilize the `useState` hook within the `Edit` component to manage QR code information associated with your content. This allows for dynamic updating of QR code data, enhancing data management capabilities on your WordPress site.
+4. **Attributes**:
+	- Utilize the `setAttributes` hook within the `Edit` component to manage QR code attributes associated with your content. This allows for dynamic updating of QR code data, enhancing data management capabilities on your WordPress site.
 
 5. **Customization and Exploration**:
 	- Now that you’ve grasped the basics, feel free to explore and customize the QR Code block to fit your specific needs. Whether it’s fine-tuning styling or expanding functionality, the possibilities are endless!
