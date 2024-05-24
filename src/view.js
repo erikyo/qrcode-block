@@ -7,7 +7,7 @@ function updateQr( el ) {
 		color: {
 			light: el.dataset.colorBackground,
 			dark: el.dataset.colorText,
-		}
+		},
 	} );
 }
 
